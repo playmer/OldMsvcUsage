@@ -17,20 +17,22 @@ set(CMAKE_PCH_PROLOGUE "#pragma clang system_header")
 
 set(WIN32 1 CACHE INTERNAL "")
 #set(CMAKE_EXE_LINKER_FLAGS "-Xlinker /LIBPATH:${CMAKE_CURRENT_LIST_DIR}/win_sdk_gen/defs/ KERNEL32.lib USER32.lib -Xlinker /subsystem:console,4 -Xlinker /NODEFAULTLIB -Xlinker /version:0 -Xlinker /osversion:4 -Xlinker /align:4096 -Xlinker /filealign:4096 -Xlinker /dynamicbase:no -Xlinker /tsaware:no -Xlinker /nxcompat:no -Xlinker /FIXED" CACHE INTERNAL "")
-set(CMAKE_EXE_LINKER_FLAGS "-Xlinker /LIBPATH:${CMAKE_CURRENT_LIST_DIR}/win_sdk_gen/defs/ -Xlinker /subsystem:console,4 -Xlinker /version:0 -Xlinker /osversion:4 -Xlinker /align:4096 -Xlinker /filealign:4096 -Xlinker /dynamicbase:no -Xlinker /tsaware:no -Xlinker /nxcompat:no -Xlinker /FIXED" CACHE INTERNAL "")
+set(CMAKE_EXE_LINKER_FLAGS "-Xlinker /LIBPATH:\"C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB\" -Xlinker /LIBPATH:\"C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib\" -Xlinker /LIBPATH:\"C:/Program Files/Microsoft Platform SDK/Lib\" -Xlinker /subsystem:console,4 -Xlinker /version:0 -Xlinker /osversion:4 -Xlinker /align:4096 -Xlinker /filealign:4096 -Xlinker /dynamicbase:no -Xlinker /tsaware:no -Xlinker /nxcompat:no -Xlinker /FIXED" CACHE INTERNAL "")
 
 # Pass -v for verbose output
 #set(CMAKE_CXX_FLAGS_INIT "-target i386-pc-win32 -DWIN32 -I ${CMAKE_CURRENT_LIST_DIR}/llvm/lib/clang/20/include -I \"C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um\" -I \"C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared\" -march=i386 -fuse-ld=lld-link -m32 -nostdinc")
 #set(CMAKE_C_FLAGS_INIT "-target i386-pc-win32 -DWIN32 -I ${CMAKE_CURRENT_LIST_DIR}/llvm/lib/clang/20/include -I \"C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um\" -I \"C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared\" -march=i386 -fuse-ld=lld-link -m32 -nostdinc")
 
 
-set(__WIN9X_DEFINES "-DWIN32 -D_STDCALL_SUPPORTED=1 -D__STDC__=1")
+# -DSTBI_NO_SIMD should be in SDL, I don't know where to put it.
+set(__WIN9X_DEFINES "-DSTBI_NO_SIMD -D_MT -DWIN32 -D_STDCALL_SUPPORTED=1 -D__STDC__=1")
 set(__WIN9X_ARCH_FLAGS "-target i386-pc-win32 -march=i386 -m32")
 set(__WIN9X_INCLUDE_FLAGS "-nobuiltininc")
 #set(__WIN9X_LINK_FLAGS "-fuse-ld=lld-link -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB\" -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib\" -L \"C:/Program Files/Microsoft Platform SDK/Lib\"")
-set(__WIN9X_LINK_FLAGS "-fuse-ld=lld-link -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB\" -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib\" -L \"C:/Program Files/Microsoft Platform SDK/Lib\" -l User32.lib -l Kernel32.lib")
+#set(__WIN9X_LINK_FLAGS "-fuse-ld=lld-link -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB\" -L \"C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib\" -L \"C:/Program Files/Microsoft Platform SDK/Lib\" -l User32.lib -l Kernel32.lib")
+set(__WIN9X_LINK_FLAGS "-fuse-ld=lld-link -l Kernel32.lib -l User32.lib")
 
-set(CMAKE_CXX_FLAGS_INIT "-v ${__WIN9X_DEFINES} -fms-compatibility-version=0 ${__WIN9X_ARCH_FLAGS} ${__WIN9X_INCLUDE_FLAGS} ${__WIN9X_LINK_FLAGS}")
-set(CMAKE_C_FLAGS_INIT "-v ${__WIN9X_DEFINES} -fms-compatibility-version=0 ${__WIN9X_ARCH_FLAGS} ${__WIN9X_INCLUDE_FLAGS} ${__WIN9X_LINK_FLAGS}")
+set(CMAKE_CXX_FLAGS_INIT "${__WIN9X_DEFINES} -fms-compatibility-version=0 ${__WIN9X_ARCH_FLAGS} ${__WIN9X_INCLUDE_FLAGS} ${__WIN9X_LINK_FLAGS}")
+set(CMAKE_C_FLAGS_INIT "${__WIN9X_DEFINES} -fms-compatibility-version=0 ${__WIN9X_ARCH_FLAGS} ${__WIN9X_INCLUDE_FLAGS} ${__WIN9X_LINK_FLAGS}")
 
 set(CMAKE_GENERATOR Ninja)

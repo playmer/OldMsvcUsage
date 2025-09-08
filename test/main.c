@@ -4,6 +4,17 @@
 
 #include "Windows.h"
 
+
+#define _COMPLEX_DEFINED
+
+#define _complex _Complex
+#define _Complex __Complex
+
+#include <math.h>
+
+#undef _Complex
+#undef _complex
+
 int main()
 {
     printf("Hello World!\n");
