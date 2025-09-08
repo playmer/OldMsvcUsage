@@ -9,6 +9,12 @@ The clang one is just downloading the latest clang and putting it locally here, 
  - Clang has some Windows APIs as intrinsics, and they're _slighltly_ different now, one of the args being volatile. Should we patch the Windows SDK header? I don't _think_ it would cause problems. Alternatively could provide a forwarding header to def/undef the symbol to something else.
    - Currently I'm just shimming them.
 
+# TODO
+
+- Write script for the 2005 DirectX SDK (Earlier?)
+  - https://download.microsoft.com/download/a/e/7/ae743f1f-632b-4809-87a9-aa1bb3458e31/DXSDK_Jun10.exe
+- VS2005 Script needs to prompt and relaunch with elevation. (Maybe all the "installer" ones do?)
+
 # Compiling with clang:
 
 Run SetupEnv.bat or SetupEnv.ps1 depending on if you're using powershell or cmd. That'll get you a command line environment that works. You should be able to call `cl` and `clang`.

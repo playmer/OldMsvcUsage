@@ -2,3 +2,4 @@
 *.tar.xz
 clang/
 *.help
+build/
