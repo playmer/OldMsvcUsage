@@ -26,8 +26,6 @@ Run SetupEnv.bat or SetupEnv.ps1 depending on if you're using powershell or cmd.
 
 `clang++ -D_STDCALL_SUPPORTED=1 -D__STDC__=1 test\main.cpp -fms-compatibility-version=0 -nobuiltininc -v  -march=i386 -m32 -fuse-ld=lld-link -L "C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB" -L "C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib" -L "C:/Program Files/Microsoft Platform SDK/Lib" -l User32.lib`
 
-
-
 # Compiling with CMake:
 
 Run `CMakeEnv.ps1`, and then make sure to pass `-G Ninja` when calling CMake so it selects the ninja generator.
