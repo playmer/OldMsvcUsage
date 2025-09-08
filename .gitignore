@@ -1,3 +1,4 @@
 *.iso
 *.tar.xz
-clang+llvm*/
+clang/
+*.help

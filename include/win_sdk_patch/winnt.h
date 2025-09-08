@@ -1,0 +1,8 @@
+
+#define _interlockedbittestandset _interlockedbittestandset_win32
+#define _interlockedbittestandreset _interlockedbittestandreset_win32
+
+#include_next "winnt.h"
+
+#undef _interlockedbittestandset
+#undef _interlockedbittestandreset

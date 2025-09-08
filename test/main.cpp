@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#include <inttypes.h>
+
+#include "Windows.h"
 
 struct Animal {
     virtual ~Animal(){};
@@ -33,6 +36,8 @@ const Test t2 = Test(5);
 int main()
 {
     printf("Hello World!\n");
+
+    MessageBoxA(0, "startup_main_cpp", "startup_main_cpp", MB_CANCELTRYCONTINUE);
 
     Animal* animal = new Cat();
     animal->Speak();
