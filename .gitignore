@@ -3,3 +3,6 @@
 clang/
 *.help
 build/
+*.exe
+*.pdb
+*.obj

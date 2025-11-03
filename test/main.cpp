@@ -12,7 +12,7 @@ struct Animal {
 struct Cat : public Animal {
     ~Cat(){};
     virtual void Speak() override {
-         printf("meow\n");
+         MessageBoxA(0, "meow", "meow\n", MB_CANCELTRYCONTINUE);
     }
 };
 
@@ -22,12 +22,12 @@ public:
     Test(int a) 
     {
         t = new int(a);
-        printf("Test()\n");
+        MessageBoxA(0, "Test()", "Test()\n", MB_CANCELTRYCONTINUE);
     }
     ~Test()
     {
         delete t;
-        printf("~Test()\n");
+        MessageBoxA(0, "~Test()", "~Test()\n", MB_CANCELTRYCONTINUE);
     }
 };
 const Test t2 = Test(5);
@@ -35,9 +35,9 @@ const Test t2 = Test(5);
 
 int main()
 {
-    printf("Hello World!\n");
-
     MessageBoxA(0, "startup_main_cpp", "startup_main_cpp", MB_CANCELTRYCONTINUE);
+
+    MessageBoxA(0, "Hello World!", "Hello World!\n", MB_CANCELTRYCONTINUE);
 
     Animal* animal = new Cat();
     animal->Speak();

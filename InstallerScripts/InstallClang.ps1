@@ -1,3 +1,7 @@
+$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
+
+. "$scriptPath/Utilities.ps1"
+
 $org_and_repo = "llvm/llvm-project"
 
 $tag = (Invoke-WebRequest "https://api.github.com/repos/${org_and_repo}/releases/latest" | ConvertFrom-Json).tag_name

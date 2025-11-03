@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_NAME Windows3x)
 
-set(CMAKE_CXX_COMPILER clang++)
-set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang-cl)
+set(CMAKE_C_COMPILER clang-cl)
 set(CMAKE_AR llvm-ar)
 
 
@@ -15,6 +15,7 @@ set(CMAKE_PCH_PROLOGUE "#pragma clang system_header")
 #string(REPLACE "-c <SOURCE>" "-c -- <SOURCE>" CMAKE_${lang}_CREATE_PREPROCESSED_SOURCE "${CMAKE_${lang}_CREATE_PREPROCESSED_SOURCE}")
 #string(REPLACE "-c <SOURCE>" "-c -- <SOURCE>" CMAKE_${lang}_CREATE_ASSEMBLY_SOURCE "${CMAKE_${lang}_CREATE_ASSEMBLY_SOURCE}")
 
+set(MSVC 1)
 set(WIN32 1 CACHE INTERNAL "")
 #set(CMAKE_EXE_LINKER_FLAGS "-Xlinker /LIBPATH:${CMAKE_CURRENT_LIST_DIR}/win_sdk_gen/defs/ KERNEL32.lib USER32.lib -Xlinker /subsystem:console,4 -Xlinker /NODEFAULTLIB -Xlinker /version:0 -Xlinker /osversion:4 -Xlinker /align:4096 -Xlinker /filealign:4096 -Xlinker /dynamicbase:no -Xlinker /tsaware:no -Xlinker /nxcompat:no -Xlinker /FIXED" CACHE INTERNAL "")
 set(CMAKE_EXE_LINKER_FLAGS "-Xlinker /DEBUG -Xlinker /NODEFAULTLIB -Xlinker /LIBPATH:\"C:/Program Files (x86)/Microsoft Visual Studio 8/VC/LIB\" -Xlinker /LIBPATH:\"C:/Program Files (x86)/Microsoft Visual Studio 8/SDK/v2.0/lib\" -Xlinker /LIBPATH:\"C:/Program Files/Microsoft Platform SDK/Lib\" -Xlinker /subsystem:console,4 -Xlinker /version:0 -Xlinker /osversion:4 -Xlinker /align:4096 -Xlinker /filealign:4096 -Xlinker /dynamicbase:no -Xlinker /tsaware:no -Xlinker /nxcompat:no -Xlinker /FIXED" CACHE INTERNAL "")

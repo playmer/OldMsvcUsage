@@ -29,3 +29,13 @@ Run SetupEnv.bat or SetupEnv.ps1 depending on if you're using powershell or cmd.
 # Compiling with CMake:
 
 Run `CMakeEnv.ps1`, and then make sure to pass `-G Ninja` when calling CMake so it selects the ninja generator.
+
+## Compiling SDL
+
+`cmake --fresh -DSDL_EXAMPLES=1 -DSDL_TESTS=1 -DSDL_DIRECTX=0 -G Ninja ..`
+
+
+## Useful Links
+
+ - [Rust folks trying to use MSVC ABI, but not link into the CRT or VCRuntime stuff](https://internals.rust-lang.org/t/pre-rfc-remove-rusts-dependency-on-visual-studio-in-4-complex-steps/16708)
+   - Seems like kind of a fools errand to try to escape it. But I'll keep exploring it.

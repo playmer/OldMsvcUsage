@@ -1,3 +1,7 @@
+$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
+
+. "$scriptPath/Utilities.ps1"
+
 # Must be in an elevated Prompt
 
 Enable-WindowsOptionalFeature -Online -FeatureName NetFx3 -All
